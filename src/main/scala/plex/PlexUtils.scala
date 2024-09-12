@@ -31,7 +31,7 @@ trait PlexUtils {
         logger.warn(s"Unable to fetch watchlist from Plex: $err")
         Set.empty
       case Right(json) =>
-        logger.debug("Found Json from Plex watchlist, attempting to decode")
+        logger.debug("Found Json from Plex watchlist, attempting to decode!")
         json.as[Watchlist].map(_.items).getOrElse {
           logger.warn("Unable to fetch watchlist from Plex - decoding failure")
           Set.empty
